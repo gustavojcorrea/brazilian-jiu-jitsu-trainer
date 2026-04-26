@@ -309,6 +309,8 @@ function BJJMoveScene({ move }) {
         enableZoom={true}
         enableRotate={true}
         target={[0, 0.58, 0]}
+        minAzimuthAngle={Math.PI / 2 - 0.18}
+        maxAzimuthAngle={Math.PI / 2 + 0.18}
         minPolarAngle={1.1}
         maxPolarAngle={1.32}
       />
@@ -331,38 +333,38 @@ export default function App() {
         </header>
 
         <div className="absolute inset-0">
-          <Canvas camera={{ position: [4.7, 1.7, 0.45], fov: 34 }} shadows className="h-full w-full">
+          <Canvas camera={{ position: [4.9, 1.45, 0], fov: 38 }} shadows className="h-full w-full">
             <BJJMoveScene move={move} />
           </Canvas>
         </div>
 
-        <aside className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-2 border-t border-slate-800 bg-slate-950/88 p-3 backdrop-blur-xl md:bottom-5 md:left-auto md:right-5 md:top-auto md:w-[min(340px,34vw)] md:rounded-2xl md:border">
-          <div className="rounded-lg border border-slate-800 bg-slate-900/80 p-3">
+        <aside className="absolute bottom-0 left-0 right-0 z-20 flex flex-col gap-2 border-t border-slate-800 bg-slate-950/88 p-2 backdrop-blur-xl sm:p-3 md:bottom-5 md:left-auto md:right-5 md:top-auto md:w-[min(340px,34vw)] md:rounded-2xl md:border">
+          <div className="rounded-lg border border-slate-800 bg-slate-900/80 p-2.5 sm:p-3">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Featured move</p>
             <h2 className="mt-1 text-xl font-black md:text-2xl">{selected.title}</h2>
             <p className="mt-1 text-sm font-medium" style={{ color: selected.color }}>{selected.subtitle}</p>
-            <p className="mt-2 text-xs leading-5 text-slate-300 md:text-sm md:leading-6">{selected.description}</p>
+            <p className="mt-2 hidden text-xs leading-5 text-slate-300 sm:block md:text-sm md:leading-6">{selected.description}</p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-center text-xs font-bold text-slate-300">
+          <div className="hidden grid-cols-3 gap-2 text-center text-xs font-bold text-slate-300 sm:grid">
             <div className="rounded-lg border border-slate-800 bg-slate-900/70 px-2 py-2">Watch</div>
             <div className="rounded-lg border border-slate-800 bg-slate-900/70 px-2 py-2">Notice</div>
             <div className="rounded-lg border border-slate-800 bg-slate-900/70 px-2 py-2">Train</div>
           </div>
 
-          <div className="rounded-lg border border-red-500/60 bg-red-950/75 p-3">
+          <div className="rounded-lg border border-red-500/60 bg-red-950/75 p-2.5 sm:p-3">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-red-200">Next step</p>
             <h3 className="mt-1 text-lg font-black md:text-xl">Get live correction.</h3>
-            <p className="mt-1 text-xs leading-5 text-red-100 md:text-sm md:leading-6">
+            <p className="mt-1 hidden text-xs leading-5 text-red-100 sm:block md:text-sm md:leading-6">
               Bring this move to a Gracie Barra San Diego coach and ask them to fix your first reps.
             </p>
             <a
               href="https://graciebarrasandiego.com/"
               target="_blank"
               rel="noreferrer"
-              className="mt-3 block rounded-lg bg-red-600 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-red-500"
+              className="mt-3 block rounded-lg bg-red-600 px-4 py-2.5 text-center text-sm font-black text-white transition hover:bg-red-500 sm:py-3"
             >
-              Book a free consultation
+              Start at Gracie Barra
             </a>
           </div>
         </aside>
