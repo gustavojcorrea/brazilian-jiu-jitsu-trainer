@@ -305,14 +305,12 @@ function BJJMoveScene({ move }) {
       </Text>
 
       <OrbitControls
-        enablePan={false}
+        enablePan={true}
         enableZoom={true}
         enableRotate={true}
         target={[0, 0.58, 0]}
-        minAzimuthAngle={Math.PI / 2 - 0.18}
-        maxAzimuthAngle={Math.PI / 2 + 0.18}
-        minPolarAngle={1.1}
-        maxPolarAngle={1.32}
+        minPolarAngle={0.25}
+        maxPolarAngle={1.45}
       />
     </>
   );
